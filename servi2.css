@@ -1,0 +1,430 @@
+/* General */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #051338; /* Fondo oscuro */
+    color: #f0f0f0; /* Texto blanco */
+    box-sizing: border-box;
+}
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(#97c9fc, #051338); /* Degradado de azul claro a azul oscuro */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    animation: expand 3s forwards;
+    -webkit-animation: expand 3s forwards; /* Prefijo para Webkit */
+}
+
+/* Logo */
+.logo {
+    width: 130px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 50%;
+    -webkit-filter: drop-shadow(0 0 10px rgb(255, 254, 254)); /* Prefijo Webkit para sombras */
+    filter: drop-shadow(0 0 10px rgb(255, 254, 254)); /* Sombra */
+}
+
+/* Enlaces */
+a {
+    color: #f0f0f0; /* Texto blanco */
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: color 0.3s, transform 0.3s;
+    -webkit-transition: color 0.3s, transform 0.3s; /* Prefijo Webkit */
+}
+
+/* Nombre de la empresa */
+.company-name {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Resalta el nombre con sombra sutil */
+    animation: fadeInOut 5s ease-in-out infinite;
+    animation-delay: 1s;
+    -webkit-animation: fadeInOut 5s ease-in-out infinite; /* Prefijo Webkit */
+    -webkit-animation-delay: 1s; /* Prefijo Webkit */
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Animación de expansión */
+@keyframes expand {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px;
+    }
+}
+
+@-webkit-keyframes expand { /* Prefijo Webkit para la animación */
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 80px;
+    }
+}
+
+.service-section {
+    padding: 10rem 2rem;
+    text-align: center;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.service-header h3 {
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    color: #00bcd4; /* Color azul claro */
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Sombra para mayor profundidad */
+}
+
+.service-header p {
+    font-size: 1.5rem; /* Aumentar el tamaño de fuente */
+    max-width: 800px; /* Ancho máximo ajustado */
+    margin: 0 auto;
+    color: #e0e0e0; /* Color gris claro */
+    line-height: 1.6; /* Mejorar la legibilidad */
+    transition: color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+.service-header p:hover {
+    color: #ffffff; /* Cambiar color al pasar el mouse */
+}
+
+/* Sección de Información Detallada */
+/* Sección de Información Detallada */
+.service-detail {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    color: #fff; /* Texto claro sobre fondo oscuro */
+    background-color: #0d0f1d; /* Fondo oscuro */
+    ; /* Bordes redondeados para un toque moderno */
+    overflow: hidden;
+}
+
+/* Fondo con efecto de líneas de luz animadas */
+.service-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg,#97c9fc  25%, #5293d3 50%, #051338 75%);
+    background-size: 200% 200%;
+    animation: movingLines 3s ease-in-out infinite; /* Movimiento fluido de las líneas */
+    opacity: 0.4;
+}
+
+/* Animación de las líneas de fondo */
+@keyframes movingLines {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Título con animación de deslizamiento y resplandor futurista */
+.service-detail h2 {
+    font-size: 2.5rem;
+    color: #2c82d8; /* Azul brillante para el texto */
+    margin-bottom: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInUp 1s ease-out, glowingText 1.5s infinite alternate;
+}
+
+/* Animación de aparición del título */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Párrafos con animación de deslizamiento y mayor legibilidad */
+.service-detail p {
+    font-size: 1.5rem;
+    color: #e0e0e0; /* Gris suave para mejorar la lectura */
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    animation: slideIn 1.5s ease-out;
+}
+
+/* Animación de deslizamiento para los párrafos */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto interactivo para los párrafos */
+.service-detail p:hover {
+    text-shadow: 0 0 20px rgba(2, 217, 255, 0.7), 0 0 40px rgba(2, 217, 255, 0.5);
+    cursor: pointer;
+}
+
+/* Sombra de texto interactiva para el título */
+.service-detail h2:hover {
+    text-shadow: 0 0 30px rgb(7, 17, 19), 0 0 60px rgba(2, 217, 255, 0.8);
+    cursor: pointer;
+}
+
+/* Fondo con efecto parallax sutil para dar profundidad */
+.service-detail .parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2020/11/16/11/38/abstract-5746771_960_720.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+
+/* Sección de Beneficios */
+.service-content {
+    max-width:max-content;
+    margin: 20px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #a4b7eb, #6a9fd5);
+    border-radius: 8px;
+
+}
+
+/* Introducción del servicio */
+.service-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-intro h2 {
+    font-size: 2.5em;
+    color: #0056b3; /* Color azul más oscuro para mejor contraste */
+    margin-bottom: 10px;
+}
+
+.service-intro p {
+    font-size: 1.5rem;
+    color: #161616; /* Color gris para el texto */
+    margin: 0;
+}
+
+/* Beneficios clave */
+.service-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.service-benefits h2 {
+    width: 100%;
+    font-size: 2rem;
+    color: #0c0c0c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo de cada beneficio */
+.benefit-item {
+    background: #ccccceab; /* Color de fondo más suave */
+    border-radius: 10px;
+    padding: 30px; /* Aumentar el padding para mejor espacio */
+    flex: 1 1 calc(45% - 20px); /* Dos columnas con espacio entre ellas */
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+    width: 250px; /* Aumentar el tamaño de las imágenes */
+    height: 250px;
+    margin-bottom: 15px;
+    object-fit: contain; /* Mantener la proporción de la imagen */
+    filter: brightness(1.1) contrast(1.2); /* Mejora el brillo y contraste de la imagen */
+}
+
+.benefit-item p {
+    font-size: 1.5rem; /* Aumentar el tamaño del texto */
+    margin: 0;
+    color: #333; /* Color oscuro para mejor legibilidad */
+}
+
+.benefit-item strong {
+    color: #0056b3; /* Color azul más oscuro para títulos */
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    .benefit-item {
+        flex: 1 1 100%; /* Una columna en pantallas pequeñas */
+    }
+    
+    .service-intro h2 {
+        font-size: 2em;
+    }
+    
+    .service-benefits h2 {
+        font-size: 1.8em;
+    }
+    
+    .benefit-icon {
+        width: 120px; /* Ajustar el tamaño de las imágenes en móviles */
+        height: 120px;
+        filter: brightness(1.1) contrast(1.2); /* Mantener el filtro en móviles */
+    }
+}
+
+
+.use-cases {
+    background-color: #f9f9f9;
+    padding: 10px; /* Más reducido */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+}
+
+.use-cases h2 {
+    text-align: center;
+    font-size: 1.5em; /* Más reducido */
+    color: #333;
+}
+
+.use-case-container {
+    display: flex;
+    justify-content: space-around; /* Alineación horizontal */
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+}
+
+.use-case {
+    flex: 0 0 200px; /* Tamaño fijo más pequeño para cada caso */
+    margin: 5px; /* Más reducido */
+    padding: 10px; /* Más reducido */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+    transition: transform 0.3s;
+    display: flex; /* Añadido para centrar contenido */
+    flex-direction: column; /* Alineación vertical */
+    align-items: center; /* Centrar horizontalmente */
+    text-align: center; /* Centrar texto */
+}
+
+.client-logo {
+    width: 80%; /* Ajustar al 80% del contenedor */
+    max-width: 250px; /* Ancho máximo para evitar desbordamiento */
+    border-radius: 8px;
+}
+
+.use-case p {
+    margin-top: 5px; /* Más reducido */
+    font-size: 0.9em; /* Más reducido */
+    color: #555;
+}
+
+.use-case:hover {
+    transform: scale(1.03); /* Efecto de hover más sutil */
+}
+
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #1c1f33;
+    color: #dcdcdc;
+    font-size: 1rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .service-benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefit-item {
+        padding: 1.5rem;
+    }
+
+    .use-cases {
+        padding: 3rem 2rem;
+    }
+
+    .use-case {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 2rem;
+    }
+
+    .service-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .service-intro h2 {
+        font-size: 1.5rem;
+    }
+}

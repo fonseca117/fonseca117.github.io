@@ -1,0 +1,504 @@
+body {
+  font-family: 'Figtree', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #f7f4f4;
+}
+
+.sectionWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
+  padding: 2rem;
+  overflow: hidden; /* Elimina el posible desplazamiento */
+}
+
+.parallax-bg {
+  position: fixed; /* El video permanece fijo en el fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3; /* Coloca el video detrás del contenido */
+}
+
+.parallax-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw; /* Asegura que cubra todo el ancho de la ventana */
+  height: 100vh; /* Asegura que cubra todo el alto de la ventana */
+  object-fit: cover; /* Hace que el video cubra completamente el contenedor */
+  transform: translate(-50%, -50%); /* Centra el video en el contenedor */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(#97c9fc, #051338);
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Asegura que esté por encima del fondo y otros elementos */
+  width: 100%;
+  box-shadow: 1 2px 20px rgba(44, 44, 65, 0.7);
+  animation: expand 5s forwards; /* Aumentada la duración de la animación */
+}
+
+@keyframes expand {
+  0% {
+      height: 100vh;
+  }
+  100% {
+      height: 80px; /* Altura fija del header */
+  }
+}
+
+.logo {
+  width: 130px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 50%;
+  filter: drop-shadow(
+  0 0 10px rgb(255, 254, 254)
+  );
+}
+
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.company-name {
+  font-size: 3em;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4;
+  animation: fadeInOut 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+}
+
+.card-container {
+  margin-top: calc(10vh + 1px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 4rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: -3; 
+}
+
+.cardPopout {
+  background: #97c9fca1;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%; /* Ancho flexible */
+  max-width: 450px; /* Ancho máximo de las tarjetas */
+  min-height: 300px; /* Altura mínima para asegurar espacio */
+  display: flex; /* Usar flexbox para el contenido interno */
+  flex-direction: column; /* Alinear el contenido en columna */
+  position: relative; /* Para efectos de pseudo-elementos */
+  overflow: hidden; /* Evita el desbordamiento */
+}
+
+.cardPopout img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.cardPopout:hover {
+  transform: translateY(-10px) scale(1.05); /* Efecto de desplazamiento y escalado */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  color: #0b1f92;
+  position: relative; /* Para el efecto de líneas */
+}
+
+.line-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Detrás del contenido */
+}
+
+.line-animation::before,
+.line-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #0b1f92;
+  animation: line-move 2s linear infinite;
+}
+
+.line-animation::after {
+  top: 50%;
+  animation-delay: 1s; /* Retardo para la segunda línea */
+}
+
+@keyframes line-move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.text-content1,
+.text-content2,
+.text-content3 {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #0a0a0a;
+  text-align: justify;
+  flex-grow: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: 26rem;
+  transition: transform 0.3s ease; /* Añadir transición para el texto */
+}
+
+.text-content3{
+  min-height: 27.5rem;
+}
+
+/* Eliminar puntos de lista */
+.cardPopout ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardPopout:hover .text-content1,
+.cardPopout:hover .text-content2,
+.cardPopout:hover .text-content3 {
+  transform: translateY(-5px); /* Efecto de desplazamiento en el texto */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+  }
+}
+.menu-inferior {
+  background: linear-gradient(145deg, #8b96e7, #1d1d2b); /* Degradado vibrante */
+  border-radius: 40px; /* Bordes muy redondeados */
+  position: fixed; /* Fijo en la parte inferior */
+  bottom: 20px; /* Ajustado para posicionarlo más arriba */
+  left: 50%; /* Centrar horizontalmente */
+  transform: translateX(-50%); /* Ajustar para centrar */
+  width: calc(100% - 40px); /* Ajustar para tener márgenes laterales */
+  max-width: 500px; /* Ancho máximo */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+  z-index: 1; /* Asegúrate de que esté encima de otros elementos */
+  padding: 10px 0; /* Espaciado vertical */
+  backdrop-filter: blur(25px); /* Efecto de desenfoque de fondo más fuerte */
+  transition: background 0.5s, transform 0.3s, bottom 0.5s ease-in-out, opacity 0.3s; /* Añadir animación para "bottom" y "opacity" */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para un toque HD */
+  opacity: 1; /* Asegura que el menú sea visible al principio */
+  transform-origin: center center; /* Establecer el centro como origen de las transformaciones */
+}
+
+.menu-inferior:hover {
+  background: linear-gradient(135deg, #1d1d2b, #3a3e5b);
+  transform: translateY(-10px) translateX(-50%); /* Mantener el centramiento al hacer hover */
+  opacity: 0.9; /* Reduce ligeramente la opacidad al hacer hover */
+}
+
+/* Agregar animación al menú cuando se carga la página */
+@keyframes slideUp {
+  0% {
+    bottom: -100px; /* Comienza fuera de la pantalla */
+    opacity: 0; /* Invisible al inicio */
+  }
+  100% {
+    bottom: 20px; /* Se coloca en su posición final */
+    opacity: 1; /* Visibilidad completa */
+  }
+}
+
+.menu-inferior {
+  animation: slideUp 1s ease-out forwards; /* Aplica la animación al menú */
+}
+
+
+.menu-inferior nav {
+  display: flex; /* Flexbox para alinear los elementos */
+  justify-content: space-around; /* Espaciado uniforme entre elementos */
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.menu-inferior .menu {
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+  display: flex; /* Para alinear horizontalmente */
+  flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+  justify-content: center; /* Centrar los elementos */
+}
+
+.menu-inferior .menu li {
+  margin: 5px; /* Añadir márgenes para evitar que los elementos se amontonen */
+}
+
+.menu-inferior a {
+  color: #ffffff; /* Color de texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 700; /* Peso de fuente más audaz */
+  transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Transiciones suaves */
+  font-size: 1rem; /* Tamaño de fuente ajustado */
+  display: flex; /* Para alinear iconos y texto */
+  align-items: center;
+  padding: 10px 20px; /* Espaciado interno más ajustado */
+  border-radius: 25px; /* Bordes redondeados en enlaces */
+  position: relative; /* Para efecto de pseudo-elemento */
+}
+
+/* Efecto Hover */
+.menu-inferior a:hover {
+  color: #ffd700; /* Cambia a dorado al pasar el mouse */
+  transform: translateY(-5px); /* Eleva ligeramente el enlace */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse */
+}
+
+/* Efecto Activo (clic) */
+.menu-inferior a:active {
+  transform: translateY(2px); /* Baja ligeramente al hacer clic */
+  color: #ff4500; /* Cambia a un color naranja */
+}
+
+/* Pseudo-elemento para un efecto visual adicional */
+.menu-inferior a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #ffd700; /* Línea dorada */
+  transition: width 0.3s, left 0.3s; /* Transiciones suaves */
+}
+
+.menu-inferior a:hover::after {
+  width: 100%; /* Línea se expande al pasar el mouse */
+  left: 0; /* Alinear a la izquierda */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 600px) {
+  .menu-inferior {
+      width: calc(100% - 20px); /* Ajustar el ancho para pantallas pequeñas */
+      padding: 15px 0; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .menu-inferior a {
+      font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+      padding: 8px 15px; /* Reducir espaciado interno */
+  }
+
+  .menu-inferior .menu {
+      flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+      align-items: center; /* Centrar los elementos */
+  }
+}
+
+@media (max-width: 400px) {
+  .menu-inferior a {
+      font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+  }
+}
+/* Sección de Contacto */
+.contacto {
+  background: linear-gradient(145deg, #8b96e7cc, #1d1d2bc9); /* Degradado vibrante */
+  border-radius: 40px; /* Bordes muy redondeados */
+  padding: 50px 20px; /* Espaciado interno */
+  margin: 150px auto; /* Asegúrate de agregar un margen superior suficiente para que quede debajo del logo animado */
+  max-width: 800px; /* Ancho máximo para mantener la responsividad */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+  position: relative; /* Para que se ajuste en el flujo normal de la página */
+  z-index: 1; /* Asegúrate de que el z-index sea menor que el del logo */
+  font-size: 10%;
+}
+
+/* Asegúrate de que la animación del logo se mantenga encima */
+.logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Asegura que el logo quede por encima de otros elementos */
+  width: 100%;
+}
+
+/* Parallax background */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Asegura que el fondo quede debajo de todo el contenido */
+}
+
+/* Ajuste del margen superior de la sección de contacto para no solaparse con el logo */
+.contacto {
+  margin-top: 150px; /* Ajusta este valor si es necesario para que esté debajo del logo */
+}
+
+
+.contacto h2 {
+  font-size: 2.5rem; /* Tamaño de fuente más grande para el título */
+  font-weight: bold;
+  color: #ffffff; /* Color de texto blanco */
+  text-align: center;
+  margin-bottom: 30px; /* Margen inferior */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 25px #81bbe4; /* Efecto de sombra y brillo */
+}
+
+.mensaje-confirmacion {
+  display: none; /* Inicialmente oculto */
+  background-color: #28a745; /* Color de fondo verde */
+  color: #ffffff; /* Color de texto blanco */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center;
+  font-size: 1.5rem; /* Tamaño de fuente */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  transition: transform 0.3s, opacity 0.3s; /* Transición de transformación y opacidad */
+  opacity: 0; /* Inicialmente con opacidad 0 */
+}
+
+.mensaje-confirmacion.show {
+  display: block; /* Mostrar el mensaje cuando tenga la clase .show */
+  transform: translateY(-10px); /* Efecto de elevación */
+  opacity: 1; /* Mostrar con opacidad 1 */
+}
+
+.boton-contacto {
+  display: flex; /* Usar flexbox para alinear los botones */
+  justify-content: center; /* Centrar los botones */
+  margin-top: 30px; /* Margen superior */
+}
+
+.boton-contacto a {
+  background-color: #ffffff; /* Color de fondo blanco */
+  color: #1d1d2b; /* Color de texto oscuro */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 1.5rem; /* Tamaño de fuente para mayor visibilidad */
+  font-weight: bold;
+  padding: 20px; /* Espaciado interno para hacer el botón grande */
+  border-radius: 50%; /* Bordes completamente redondeados para hacerlo circular */
+  margin: 0 10px; /* Margen entre los botones */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transiciones suaves */
+  display: flex; /* Usar flexbox para alinear iconos y texto */
+  align-items: center;
+  justify-content: center; /* Centra el contenido dentro del círculo */
+  width: 30px; /* Ancho fijo para el círculo */
+  height: 30px; /* Altura fija para el círculo */
+  text-align: center; /* Centra el texto dentro del círculo */
+}
+
+/* Efecto Hover */
+.boton-contacto a:hover {
+  background-color: #1d1d2b; /* Color de fondo oscuro al pasar el mouse */
+  color: #ffffff; /* Color de texto blanco */
+  transform: translateY(-5px); /* Efecto de elevación */
+}
+
+.boton-contacto a#whatsapp-btn {
+  background-color: #25D366; /* Color de fondo de WhatsApp */
+  color: #ffffff; /* Color de texto blanco */
+}
+
+.boton-contacto a#whatsapp-btn:hover {
+  background-color: #128C7E; /* Color de fondo de WhatsApp al pasar el mouse */
+}
+
+.boton-contacto a#gmail-btn {
+  background-color: #f11805; /* Color de fondo de Gmail */
+  color: #ffffff; /* Color de texto blanco */
+}
+
+.boton-contacto a#gmail-btn:hover {
+  background-color: #C13524; /* Color de fondo de Gmail al pasar el mouse */
+}
+
+.boton-contacto a i {
+  font-size: 1.5rem; /* Tamaño de icono más grande para ajustarse al círculo */
+  margin-right: 0; /* No necesitas margen entre el icono y el texto ya que es un círculo */
+}
+
+  .mensaje-agradecimiento {
+    font-size: 1.5rem; /* Reducir tamaño de fuente del mensaje de agradecimiento */
+    text-align: center;
+  }
+
+
+@media (max-width: 480px) {
+  .contacto {
+    border-radius: 20px; /* Reducir el radio de los bordes en pantallas más pequeñas */
+  }
+
+  .contacto h2 {
+    font-size: 1.8rem; /* Reducir aún más el tamaño de fuente del título */
+  }
+
+  .boton-contacto {
+    flex-direction: column; /* Apilar los botones en columna en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .boton-contacto a {
+    margin: 10px 0; /* Agregar margen vertical entre los botones */
+  }
+}
